@@ -1,0 +1,39 @@
+{% extends 'zzz/main.html' %}
+{% block main_section %}
+    {% for post in news %}
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.text }}</p>
+        {% if post.author == 'Валерий' %}
+            <p>Автор: Админ</p>
+        {% else %}
+            <p>Автор: {{ post.author }}</p>
+        {% endif %}
+    <span class="text-muted"><b>Дата:</b> {{ post.data|date:'j F Y, время: H:i:s' }}</span>
+<p><img src="https://s00.yaplakal.com/pics/pics_original/7/9/8/7477897.jpg" height="400"></p>
+<p><img src="https://cdn1.ozone.ru/s3/multimedia-0/6001390932.jpg" height="400"></p>
+    {% endfor %}
+{% endblock main_section %}
+
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{{ title }}</title>
+    </head>
+    <body>
+        {% for post in news %}
+            <h1>{{ post.title }}</h1>
+            <p>{{ post.text }}</p>
+            {% if post.author == 'Валерий' %}
+                <p>Автор: Админ</p>
+            {% else %}
+                <p>Автор: {{ post.author }}</p>
+            {% endif %}
+            <span class="text-muted"><b>Дата:</b> {{ post.data|date:'j F Y, время: H:i:s' }}</span>
+            <img src="https://s00.yaplakal.com/pics/pics_original/7/9/8/7477897.jpg" height="400">
+        {% endfor %}
+    </body>
+</html>
